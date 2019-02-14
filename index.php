@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 require_once('calc.php');
 ?>
 
@@ -43,7 +43,7 @@ require_once('calc.php');
           <label for="Deposit">Первый взнос по ипотеке. (В случае с арендой это та сумма, которой вы располагаете на момент принятия решения).
         </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="Deposit" name = "Deposit" value="<?php echo isset($_REQUEST['Deposit'])?intval($_REQUEST['Deposit']):2000000.00;?>">
+          <input type="float" class="form-control" id="Deposit" name = "Deposit" value="<?php echo isset($_REQUEST['Deposit'])?floatval($_REQUEST['Deposit']):2000000.00;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -54,7 +54,7 @@ require_once('calc.php');
           <label for="Cost">Стоимость квартиры (вместе с ремонтом и мебелью)
         </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="Cost" name = "Cost" value="<?php echo isset($_REQUEST['Cost'])?intval($_REQUEST['Cost']):7000000.00;?>">
+          <input type="float" class="form-control" id="Cost" name = "Cost" value="<?php echo isset($_REQUEST['Cost'])?floatval($_REQUEST['Cost']):7000000.00;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -65,7 +65,7 @@ require_once('calc.php');
           <label for="PaymentByRent">Плата за арендуемую квартиру (все включено)
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="PaymentByRent" name = "PaymentByRent" value="<?php echo isset($_REQUEST['PaymentByRent'])?intval($_REQUEST['PaymentByRent']):45000.00;?>">
+          <input type="float" class="form-control" id="PaymentByRent" name = "PaymentByRent" value="<?php echo isset($_REQUEST['PaymentByRent'])?floatval($_REQUEST['PaymentByRent']):45000.00;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -75,7 +75,7 @@ require_once('calc.php');
           <label for="PaymentByOwn">Коммунальные платежи (за квартиру купленную в ипотеку)
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="PaymentByOwn" name = "PaymentByOwn" value="<?php echo isset($_REQUEST['PaymentByOwn'])?intval($_REQUEST['PaymentByOwn']):8000.00;?>">
+          <input type="float" class="form-control" id="PaymentByOwn" name = "PaymentByOwn" value="<?php echo isset($_REQUEST['PaymentByOwn'])?floatval($_REQUEST['PaymentByOwn']):8000.00;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -87,7 +87,7 @@ require_once('calc.php');
           <label for="mortgageYearCount">Количество лет ипотеки
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="mortgageYearCount" name = "mortgageYearCount" value="<?php echo isset($_REQUEST['mortgageYearCount'])?intval($_REQUEST['mortgageYearCount']):15;?>">
+          <input type="float" class="form-control" id="mortgageYearCount" name = "mortgageYearCount" value="<?php echo isset($_REQUEST['mortgageYearCount'])?floatval($_REQUEST['mortgageYearCount']):15;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -109,7 +109,7 @@ require_once('calc.php');
           <label for="inflationImmovables">Рост цен на недвижимость
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="inflationImmovables" name = "inflationImmovables" value="<?php echo isset($_REQUEST['inflationImmovables'])?intval($_REQUEST['inflationImmovables']):1;?>">
+          <input type="float" class="form-control" id="inflationImmovables" name = "inflationImmovables" value="<?php echo isset($_REQUEST['inflationImmovables'])?floatval($_REQUEST['inflationImmovables']):1;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -120,7 +120,7 @@ require_once('calc.php');
           <label for="inflationRent">Рост стоимости аренды.
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="inflationRent" name = "inflationRent" value="<?php echo isset($_REQUEST['inflationRent'])?intval($_REQUEST['inflationRent']):3;?>">
+          <input type="float" class="form-control" id="inflationRent" name = "inflationRent" value="<?php echo isset($_REQUEST['inflationRent'])?floatval($_REQUEST['inflationRent']):3;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -130,7 +130,7 @@ require_once('calc.php');
           <label for="investmentsIncomePercent">Доход от инвестиций (если вы решили не покупать недвижимость а инвестировать в более ликвидные инструменты)
           </div>
         <div class="mb-4">
-          <input type="number" class="form-control" id="investmentsIncomePercent" name = "investmentsIncomePercent" value="<?php echo isset($_REQUEST['investmentsIncomePercent'])?intval($_REQUEST['investmentsIncomePercent']):8.5;?>">
+          <input type="float" class="form-control" id="investmentsIncomePercent" name = "investmentsIncomePercent" value="<?php echo isset($_REQUEST['investmentsIncomePercent'])?floatval($_REQUEST['investmentsIncomePercent']):8.5;?>">
           <div class="invalid-feedback">
             Please enter a valid number
           </div>
@@ -140,7 +140,7 @@ require_once('calc.php');
         <ul class="list-group mb-3">
         <?= showRes() ?>
         </ul>
-      
+
         <hr class="mb-4">
         <div class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Считать</button>

@@ -13,22 +13,32 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Test routes
+Route::prefix('/test')->group(function(){
+    Route::get("/",                 "TestController@index");
+    
+    Route::get("/auth",             "TestController@auth")->middleware('auth:api');
 });
 
-Route::get("/test","TestController@index");
+Route::post('/register',            'Api\UsersController@create');
 
-Route::get("/auth","TestController@auth")->middleware('auth:api');;
+Route::post('/login',               'Api\UsersController@login');
 
-Route::post('register','Api\UsersController@create');
+Route::get('/chapter',              "ChapterController@index");
 
-Route::get('/chapter', "ChapterController@index");
+Route::get('/question',             "QuestionController@index");
 
-Route::get('/question', "QuestionController@index");
+Route::get('/answer',               "AnswerController@index");
 
-Route::get('/question_random', "QuestionController@question_random")->middleware('auth:api');
 
-Route::post('/question_do_answer', "QuestionController@question_do_answer")->middleware('auth:api');
+// Routes with middleware auth:api
+Route::middleware('auth:api')->group(function(){
 
-Route::get('/answer', "AnswerController@index");
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/question_random',      "QuestionController@question_random")->middleware('auth:api');
+
+    Route::post('/question_do_answer',  "QuestionController@question_do_answer")->middleware('auth:api');
+});
